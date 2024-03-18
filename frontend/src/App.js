@@ -126,6 +126,7 @@ import TifrDownloadPage from "./components/PG/PG DOWNLOADS/TifrDownloadPage.jsx"
 import IsroDownloadPage from "./components/PG/PG DOWNLOADS/IsroDownloadPage.jsx";
 import BarcDownloadPage from "./components/PG/PG DOWNLOADS/BarcDownloadPage.jsx";
 import JestDownloadPage from "./components/PG/PG DOWNLOADS/JestDownloadPage.jsx";
+import { LoginForDownload } from "./components/ug_homepage/components/Downloads/LoginForDownload.jsx";
 
 
 
@@ -425,14 +426,13 @@ const App = () => {
 
           {/* This is the OTS page for JEST */}
           <Route path="/jest_ots" element={<JEST_OTS_PAGE />} />
-
           {/* ========================================================= END OF PG EXAM LINKS ====================================================================== */}
 
 
 
           {/* ======================================================== UG DOWNLOADS PAGE ============================================================================= */}
-          
-          <Route path="/download" element={<Download />} />
+          {/* <Route path="/download" element={<Download />} /> */}
+          <Route path="/download" element={<LoginForDownload />} />
           <Route path="/iitjeemaindownload" element={<IitjeeDownloadPage />} />
           <Route path="/iitjeeadvanceddownload" element={<JeeAdvancedDownloadPage />} />
           <Route path="/neetdownload" element={<NeetDownloadPage />} />
