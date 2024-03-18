@@ -1,0 +1,148 @@
+.Downloadsdiv {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.IItMainDownloads{
+    margin-bottom: 1.5rem;
+}
+
+.DownloadsUgdiv {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.DownloadsUgdiv .DownloadsUgButton {
+    display: grid;
+    gap: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
+    justify-content: center;
+}
+
+
+.DownloadsUgButton .DownloadsUgButtondiv {
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    background: #c8e7f970;
+    color: rgb(55, 59, 83);
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.DownloadsUgButton .DownloadsUgButtondiv:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 5px 0px rgb(1, 195, 255);
+    background: #c8e7f970;
+    color: rgb(55, 59, 83);
+}
+
+
+.DownloadsUgButton .DownloadsUgButtondiv a {
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: rgb(55, 59, 83);
+    text-align: center;
+    background: #fff;
+}
+
+.DownloadsUgButton .DownloadsUgButtondiv a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+.IitMainHeading h2 {
+    display: flex;
+    background: #000;
+    /* height: 9vh; */
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    padding: 1.5rem;
+}
+
+.Download_Searchbar{
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.Download_Searchbar input{
+    width: 100%;
+}
+
+.Iitmainstablediv {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.Iitmainstable{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.Iitmainstable tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+.Iitmainstable tr button {
+    background: none;
+    padding: 0;
+    transition: none;
+}
+
+.Iitmainstable tr a{
+    color: #000;
+    font-weight: bold;
+
+}
+
+.Iitmainstable tr a:hover{
+   text-decoration: underline;
+
+}
+
+.Iitmainstable tr button:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+.Iitmainstablediv .Iitmainstable th,
+.Iitmainstable td {
+    padding: 0.5rem;
+}
+
+.Iitmainstrheading {
+    font-size: 1.5rem;
+    background: #d7d7d7;
+}
+
+.DownloadsUgButtonimg img {
+    width: 100%;
+}
+
+.DownloadsUgButtonimg {
+    width: 100%;
+}

@@ -1,0 +1,282 @@
+/* 
+.STUDY_MATERIAL {
+    position: relative;
+}
+
+.DOUBT_CLARIFICATION {
+    position: relative;
+}
+
+.DOUBT_CLARIFICATION .Online_live_-class-container_HIGHLIGHTS_COURSE_content {
+    position: absolute;
+    bottom: 64%;
+    right: 30px;
+}
+
+.STUDY_MATERIAL .Online_live_-class-container_HIGHLIGHTS_COURSE_content {
+    position: absolute;
+    bottom: 64%;
+    right: 100px;
+}
+
+.jeeOlvc_ENROLL_NOW {
+    position: absolute;
+    background: #f6ec76;
+    bottom: 0;
+    width: 100%;
+} */
+
+
+.Highlights_atag{
+    color: #000;
+}
+
+.Highlights_btn:hover .Highlights_atag{
+    color: #fff;
+}
+
+
+.IIT-JEE_MAINS_ADVANCED_container{
+    display: flex;
+    background: fff1f1;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.olvc_card_head_title{
+    padding: 10px;
+}
+
+.olvc_card_head_title h3{
+    background: rgb(227 248 255);
+    padding: 10px;
+    color: #c03c61;
+    font-family: "Libre Baskerville", serif;
+    font-size: 19px;
+}
+
+.subject_list_contant{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.subject_list_data{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.subject_list_data h4{
+    font-family: "Libre Baskerville", serif;
+}
+.olvc_SCHEDULE {
+    background: #176bab;
+    padding: 5px;
+    color: #fff;
+    font-family: "Libre Baskerville", serif;
+}
+
+
+.olvc_Ongoing{
+    display: flex;
+    background: #fff;
+    gap: 10px;
+}
+
+.olvc_Ongoing ul{
+    box-shadow: 0px 0px 7px -4px;
+    /* margin: 10px 0; */
+    width: 100%;
+}
+
+.olvcBATCH_timings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px;
+}
+.olvcBATCH_timings ul{
+    box-shadow: 0 0 7px 0px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    background: #176bab;
+    color: white;
+    font-family: "Libre Baskerville", serif;
+}
+.olvcBATCH_timings ul li{
+    font-family: "Libre Baskerville", serif;
+
+}
+.olvc_SUBJECTSSPan{
+    color: #f6ec76;
+    font-family: "Libre Baskerville", serif;
+
+}
+
+
+
+
+
+
+
+
+
+/* its for HIGHLIGHTS OF THE COURSE */
+.LIVE_LECTURES {
+    background: #fcf5ff;
+    /* padding: 1rem; */
+    /* border-radius:41px 7rem; */
+    border-radius:41px;
+
+    /* border: 1px solid red; */
+    
+}
+.STUDY_MATERIAL {
+    /* margin-bottom: 19rem; */
+    background: #e7ffed;
+    /* border-radius: 7rem 41px; */
+    border-radius:41px;
+
+}
+.ONLINE_TEST_SERIES {
+    background: #eaf8ff;
+    /* border-radius:41px 7rem; */
+    border-radius:41px;
+
+}
+.DOUBT_CLARIFICATION {
+    background: #dee3ff;
+    /* border-radius: 7rem 41px; */
+    /* margin-bottom: 19rem; */
+    border-radius:41px;
+
+
+
+}
+#HIGHLIGHTScourse {
+    /* background: linear-gradient(167deg, #01c3ff,transparent, #fbf3f6); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    color: #01c3ff;
+    /* background: linear-gradient(45deg, black, transparent); */
+    font-size: 16px;
+    white-space: nowrap;
+    border-radius: 4px;
+    /* border: 1px solid #000000; */
+    cursor: pointer;
+    /* font-family: "Libre Baskerville", serif; */
+    cursor: auto;
+    background: #fff;
+    box-shadow: 0 0 6px -2px;
+  }
+  .lmnho {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lmnho {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* width: 21%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.schedule-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.schedule-popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 80%;
+    max-height: 80%;
+    overflow: auto; /* Enable scrolling if content exceeds popup size */
+    z-index: 999;
+}
+
+.close-_button {
+    /* position: absolute;
+    top: 10px;
+    right: 10px; */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    padding: 5px;
+    float: right;
+}
+
+
+
+@media only screen and (min-width:1203px) and (max-width: 1618px) {
+    .Contant_-swiper-container {
+        gap: 0;
+        flex-wrap: nowrap;
+    }
+    .IIT-JEE_MAINS_ADVANCED {
+        max-width: 457px;
+    }
+    .olvc_card_head_title h3 {
+        font-size: 17px;
+    }
+  }
+
+
+
+@media (max-width:600px){
+    .IIT-JEE_MAINS_ADVANCED {
+        width: 339px;
+    }
+    .olvc_card_head_title h3 {
+        font-size: 13px;
+    }
+    .JEE_MAINS_ADVANCED_buttons {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .subject_list_data h4 {
+        font-family: "Libre Baskerville", serif;
+        font-size: 17px;
+    }
+    .olvc_Ongoing {
+        flex-direction: column;
+    }
+    .jeeOlvc_ENROLL_NOW {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        overflow: scroll;
+        /* height: 428px; */
+    }
+    .olvcBATCH_timings ul li {
+        font-family: "Libre Baskerville", serif;
+        font-size: 14px;
+    }
+    .schedule-popup-content {
+        max-width: 90%;
+        height: auto;
+    }
+}

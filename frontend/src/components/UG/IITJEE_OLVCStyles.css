@@ -1,0 +1,1051 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  text-decoration: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --color-primary: #6c63ff;
+  --color-success: #00bf8e;
+  --color-warning: #f7c94b;
+  --color-danger: #f75842;
+  --color-danger-variant: rgba(247, 88, 66, 0.4);
+  --color-white: #fff;
+  --color-light: rgba(255, 255, 255, 0.7);
+  --color-black: #000;
+  --color-bg: #1f2641;
+  --color-bg1: #2e3267;
+  --color-bg2: #424890;
+
+  --container-width-1g: 76%;
+  --container-width-md: 90%;
+  --container-width-sm: 90.55%;
+
+
+
+
+  --transition: all 400ms ease;
+}
+
+
+nav {
+  background: black;
+  width: 90vw;
+  height: 5rem;
+  position: sticky;
+  top: 2rem;
+  margin: 0 auto;
+  border-radius: 0 30px 0% 30px;
+  z-index: 11;
+  padding: 0 3rem;
+  margin-bottom: 4rem;
+}
+
+/* this is h2 for /bitsatots */
+.bitsatheading {
+  padding: 0.7rem 0;
+}
+
+
+.pic {
+  margin-right: 100px;
+  float: left;
+  margin-left: 5px;
+  margin-top: 0.1rem;
+  width: 150px;
+  height: fit-content;
+  border: 50px;
+  cursor: pointer;
+}
+
+.pic a img {
+  border: 2px solid #01c3ff;
+  width: 150px;
+}
+
+.button {
+  display: flex;
+  color: white;
+  border: 1px solid #01c3ff;
+  background: #01c3ff;
+  border-radius: 2px;
+  text-align: center;
+  align-items: center;
+  padding: 4px;
+  justify-content: center;
+  margin-bottom: 20px;
+
+
+}
+
+.button:hover {
+  box-shadow: inset 250px 0 0 0 #fff;
+  cursor: pointer;
+  color: black;
+}
+
+/* change navbar styles on scroll using javascript*/
+.window-scroll {
+  background: Black;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  color: white;
+}
+
+.nav__container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+}
+
+.nav__container a {
+  /* font :900 1rem Roboto; */
+  text-decoration: none;
+  list-style: none;
+}
+
+nav button {
+  display: none;
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  text-decoration: none;
+
+}
+
+.nav__menu a {
+  font-size: 1rem;
+  transition: var(--transition);
+  text-decoration: none;
+  list-style: none;
+  /* padding-top:1rem; */
+}
+
+.text-li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.jeesection ul li {
+  list-style: disc;
+  font-size: 1rem;
+}
+
+.ots_schedule {
+  padding-bottom: 1rem;
+}
+
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: white;
+  display: block;
+  font-size: 18px;
+  transition: .5s;
+  background-color: rgb(0, 0, 0);
+
+
+}
+
+nav ul li a:hover {
+  border-bottom: 2px solid #fff;
+  /* color: #01c3ff;/ */
+}
+
+nav ul ul {
+  position: absolute;
+  top: 20px;
+  border-top: 1px solid #23dbdb;
+  opacity: 0;
+  visibility: hidden;
+}
+
+nav ul li:hover>ul {
+  top: 60px;
+  opacity: 1;
+  visibility: visible;
+  transition: .3s linear;
+}
+
+nav ul ul li {
+  width: 120px;
+  display: list-item;
+  position: relative;
+  border-top: none;
+
+}
+
+.uG_iit_CONTAINER {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.contents {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 2rem;
+}
+
+.iit-heading {
+  color: #00a3ff;
+  width: 100%;
+  height: 12vh;
+  background: #f1efef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  font-size: 40px;
+}
+
+.subheading {
+  color: #01c3ff;
+  font-size: 1.5rem;
+  margin: 0;
+  display: contents;
+  display: inline-block;
+}
+
+.buyolvc {
+  margin-top: 2rem;
+}
+
+.olvctable th {
+  padding: 1rem;
+  background-color: #a3e2ee;
+}
+
+.jeeinsidetable {
+  text-align: center;
+}
+
+.olvctable td {
+  padding: 1rem;
+  text-align: center;
+}
+
+.olvctable .MODE-OF-INSTRUCTIONS span {
+  background-color: red;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.olvcbroucher {
+  /* display: flex; */
+  color: #000;
+  background-color: #a3e2ee;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.olvcbroucher:hover {
+  color: #000;
+}
+
+.points li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+
+.olvcheading {
+  color: #01c3ff;
+  font-size: 1.5rem;
+  margin: 0;
+  display: contents;
+  display: inline-block;
+  font-weight: bold;
+}
+
+/*                  css for iitjee_olvc 2024                        */
+
+.Online_live_-class-container {
+  margin: 0 10rem;
+  padding: 2rem 0;
+}
+
+.Contant_-swiper-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 3rem; */
+  flex-wrap: wrap;
+}
+.JeeOlvcsCArdImg img{
+  max-width: 40rem;
+}
+
+
+
+
+
+
+
+.Online_live_-class_Carousel{
+  display: grid;
+ grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+}
+
+.Online_live_-class_Carousel_card_container { 
+  /* width: 500px; */
+  /* width: 300px; */
+display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Online_live_-class-container h2 {
+  font-size: 22px;
+  color: #c03c61;
+}
+.Online_live_class_-contant {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+.Online_live_classData{
+  position: relative;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.Online_live_classData {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  z-index: 999;
+}
+.olvc_card_dataIMG {
+  display: flex;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.olvc_card_dataIMG_bg {
+  background: #bdeeff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+ .olvc_card_dataIMG img {
+  max-width: 90px;
+}
+.olvc_card_dataTEXT {
+  /* background: rgb(54, 128, 151); */
+  /* background: linear-gradient(45deg, transparent,#faeff3); */
+  /* padding: 10px 10px 10px 31px; */
+  padding: 0 3px;
+  /* top: 1px; */
+  position: relative;
+  /* left: -23px; */
+  height: 110px;
+  width: 22rem;
+  text-align: start;
+  z-index: -99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.olvc_card_dataTEXT p{
+  font-family: 'Merienda', cursive;
+}
+
+
+
+
+.swiper-container- {
+  /* width: 28%;
+  height: auto;
+  border: 1px solid #000000; */
+  overflow: hidden;
+}
+
+.swiper-wrapper- {
+  display: flex;
+  transition: transform 0.3s ease; /* Add smooth transition */
+}
+
+.swiper-slide- {
+  flex: 0 0 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.aqctive- {
+  background-color: rgb(129, 111, 111); /* Add background color for active slide */
+display: none;
+}
+
+
+.indicators {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator {
+
+  height: 10px;
+  width: 10px !important;
+  border-radius: 50% ;
+  border: none;
+  margin: 0 5px;
+  background-color: rgb(228, 215, 215);
+  padding: 0;
+}
+
+.indicator.aqctive {
+  background-color: rgb(104, 230, 131);
+}
+.contant_swiper-container{
+  position: relative;
+}
+.handleIndicatorClick {
+  position: absolute;
+  top: 50%;
+  right: -12%;
+}
+
+.handleIndicatorClick2 {
+  position: absolute;
+  top: 50%;
+  left: -12%;
+}
+
+
+.faqIITjeeH2{
+  color: #c03c61;
+
+    font-size: 22px;
+    margin: 1.5rem 0;
+    font-family: "Libre Baskerville", serif;
+
+}
+ 
+.Online_live_-class-container{
+  width: 80%;
+  margin: 0 auto;
+}
+ 
+.Online_live_-class-container h2 {
+  /* font-size: 2rem;
+   */
+  font-size: 22px;
+   margin: 0 0 1.5rem 0;
+  font-family: "Libre Baskerville", serif;
+  white-space: nowrap;
+}
+.Online_live_-class-container_HIGHLIGHTS_COURSE{
+  display: flex;
+  flex-wrap: wrap;
+  /* background: #000; */
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  gap: 2rem;
+}
+ 
+ 
+.Online_live_-class-container_HIGHLIGHTS_COURSE img{
+  max-width: 200px;
+  height: 200px;
+}
+ 
+.Online_live_-class-container_HIGHLIGHTS_COURSE h3{
+   font-size:0.9rem;
+}
+.Online_live_-class-container_HIGHLIGHTS_COURSE_content{
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); */
+  border-radius: 8px;
+  padding: 0.5rem;
+ 
+}
+ 
+.Online_live_-class-container_COURSE_FACULTY{
+    display: flex;
+  flex-wrap: wrap;
+  /* background: #000; */
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+ 
+.Online_live_-class-container_COURSE_FACULTY img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  padding: 6px;
+}
+ 
+ 
+.Online_live_-class-container_COURSE_FACULTY_content{
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+ 
+.Online_live_-class-container_COURSE_FACULTY_IMGcontainer {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  background: #fff;
+  /* padding: 0.5rem; */
+  border-radius: 50%;
+}
+.Online_live_-class-container_COURSE_FACULTY_info_container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+ 
+.Online_live_-class-container_COURSE_FACULTY_info_container p {
+  font-size: 18px;
+  font-weight: 900;
+  color: #000000;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 800;
+  font-style: normal;
+  white-space: nowrap;
+}
+ 
+.Online_live_-class-container_COURSE_FACULTY_info_container p span {
+  font-size: 18px;
+  font-weight: 500;
+  color: #c03c61;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+ 
+.Online_live_-class-container_ADVANTAGES_LEARNING{
+  display: flex;
+  flex-wrap: wrap;
+  /* background: #000; */
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+}
+ 
+.Online_live_-class-container_ADVANTAGES_LEARNING img{
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+ 
+}
+ 
+.Online_live_-class-container_ADVANTAGES_LEARNING_content{
+  width: 250px;
+ 
+ 
+}
+.ADVANTAGES_LEARNING {
+  background: rgb(255, 255, 255);
+  border: 50%;
+  position: relative;
+  display: block;
+  height: 143px;
+  width: 143px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Online_live_-class-container_ADVANTAGES_LEARNING_content_img_continer{
+ 
+     background: #bdcedd;
+  width:150px;
+  height: 150px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem auto;
+  border-radius: 0.5rem;
+transform: rotate(45deg);
+}
+ 
+.Online_live_-class-container_ADVANTAGES_LEARNING_content_img_continer img{
+  width: 130px;
+  transform: rotate(-45deg);
+}
+#HIGHLIGHTScourse {
+  /* background: linear-gradient(167deg, #01c3ff,transparent, #fbf3f6); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  /* color: #c03c61; */
+  /* background: linear-gradient(45deg, black, transparent); */
+  font-size: 16px;
+  white-space: nowrap;
+  border-radius: 4px;
+  /* border: 3px solid #fbf3f6; */
+  cursor: pointer;
+  /* font-family: "Libre Baskerville", serif; */
+  cursor: auto;
+}
+ .OCF_COURSE_BROCHURE{
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+ }
+
+
+
+
+ .CLASS_DETAILS{
+  display: flex;
+ }
+ .IIT-JEE_MAINS_ADVANCED {
+  width: 457px;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.IIT-JEE_MAINS_ADVANCED_img img{
+  width: 100%;
+}
+.JEE_MAINS_ADVANCED_buttons {
+  display: flex;
+  gap: 5px;
+  position: relative;
+  justify-content: space-between;
+}
+.jeeOlvc_ENROLL_NOW {
+  position: absolute;
+  background: #fff1f1;
+  bottom: 0;
+  width: 100%;
+  /* height: 201%; */
+}
+.IIT-JEE_MAINS_ADVANCED_cordContainer{
+  display: flex;
+  gap: 10px;
+}
+.jeeOlvc_ENROLL_NOW_popup-content {
+  display: flex;
+  padding: 11px;
+  flex-direction: column;
+}
+.Ongoing{
+  display: flex;
+}
+.olvc_card_head h2{
+
+}
+
+@media (max-width:1280px){
+  /* .Online_live_-class-container_HIGHLIGHTS_COURSE_content{
+  width: 150px;} */
+ 
+ 
+  .Online_live_-class-container_COURSE_FACULTY_content{
+  width: 150px;}
+ 
+  .Online_live_-class-container_ADVANTAGES_LEARNING_content {
+    width: 150px;
+}
+ 
+ 
+  .Online_live_-class-container_ADVANTAGES_LEARNING_content p{
+    width: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 0.1px;
+    /* text-align: justify; */
+}
+}
+ 
+@media (max-width:1024px){
+  /* .Online_live_-class-container_HIGHLIGHTS_COURSE_content{
+  width: 125px;}
+ 
+ 
+  .Online_live_-class-container_COURSE_FACULTY_content{
+  width: 125px;} */
+ 
+  .Online_live_-class-container_ADVANTAGES_LEARNING_content {
+     width: 125px;
+}
+ 
+ 
+  .Online_live_-class-container_ADVANTAGES_LEARNING_content p{
+    width: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 0.1px;
+    /* text-align: justify; */
+}
+.Online_live_-class-container_HIGHLIGHTS_COURSE h3 {
+    font-size: 0.7rem;
+}
+.Online_live_-class-container_COURSE_FACULTY img {
+    /* width: 130px; */
+   
+}
+.Online_live_-class-container_ADVANTAGES_LEARNING_content_img_continer {
+    background: #bdcedd;
+    width: 100px;
+    height: 100px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto;
+    border-radius: 0.5rem;
+    transform: rotate(45deg);
+}.Online_live_-class-container_ADVANTAGES_LEARNING_content_img_continer img {
+    width: 90px;
+    transform: rotate(-45deg);
+}
+
+ 
+}
+ 
+@media only screen and (min-width:1203px) and (max-width: 1618px) {
+  .olvc_card_dataTEXT {
+    width: 19rem;
+}
+}
+@media only screen and (min-width:600px) and (max-width: 1024px) {
+  .pic a img {
+    border: 2px solid #01c3ff;
+    width: 100px;
+  }
+
+  .olvctable tr td,
+  .olvctable tr td b {
+    padding: 0;
+    font-size: 10px;
+  }
+
+  .olvctable tr th {
+    font-size: 14px;
+  }
+  .Online_live_-class-container {
+    margin: 0 5rem;
+    padding: 1rem 0;
+  }
+  .JeeOlvcsCArdImg img{
+    max-width: 30rem;
+  }
+  
+  .Online_live_-class-container{
+    width: 80%;
+    margin: 0 auto;
+  }
+  #HIGHLIGHTScourse {
+    font-size: 10px;
+}
+.Online_live_-class-container_HIGHLIGHTS_COURSE img {
+  max-width: 160px;
+  height: 160px;
+}
+.Online_live_-class-container_COURSE_FACULTY_info_container p {
+  font-size: 13px;
+}
+.Online_live_-class-container_COURSE_FACULTY_info_container p span {
+  font-size: 13px;
+}
+.Online_live_-class-container_COURSE_FACULTY img {
+  width: 100%;
+  height: 100%;
+}
+.olvc_card_dataTEXT {
+  width: auto;
+}
+}
+@media only screen and (min-width:800px) and (max-width: 1280px) {
+  .Online_live_-class-container {
+    margin: 0 6rem;
+    padding: 2rem 0;
+}
+.Online_live_classData {
+ justify-content: center;
+ align-items: center;
+}
+.FEATURES_-contant li {
+  width: 235px;
+}
+.FEATURES_-contantImg_bg img {
+  width: 100px !important;
+  height: 100px !important;
+}
+/* .olvc_card_dataTEXT {
+  width: auto;
+  } */
+}
+@media only screen and (min-width:360px) and (max-width: 780px) {
+  
+  .Online_live_-class-container {
+    margin: 0 6rem;
+    padding: 2rem 0;
+}
+.olvc_card_dataTEXT {
+    height: auto;
+    width: auto;
+    
+  }
+  .olvc_card_dataTEXT p{
+    font-size: 12px;
+  }
+  .Online_live_classData {
+
+    gap: 10px;
+
+}
+.JeeOlvcsCArdImg img {
+  max-width: 21rem;
+}
+.otsh1 h1 {
+  font-size: 13px;
+}
+.Online_live_classData {
+  justify-content: center;
+  align-items: center;
+ }
+ .olvc_card_dataTEXT {
+width: auto;
+}
+.Online_live_-class-container{
+  /* width: 85%; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Online_live_-class-container_COURSE_FACULTY {
+
+  flex-direction: column;
+  white-space: nowrap;
+}
+.Online_live_-class-container_HIGHLIGHTS_COURSE {
+  flex-direction: column;
+}
+.faqIITjeeH2 {
+
+  font-size: 1rem;
+
+}
+/* .olvc_card_dataIMG img {
+  max-width: 60px;
+} */
+.OCF_COURSE_BROCHURE{
+  flex-direction: column;
+  margin-bottom: 10PX;text-align: center;
+ }
+ .Contant_-swiper-container {
+gap: 0;
+}
+}
+@media only screen and (min-width:300px) and (max-width: 600px) {
+  .subheading {
+    font-size: 1rem;
+  }
+
+  nav {
+    padding: 0;
+  }
+
+  .nav__menu a {
+    font-size: 10px;
+  }
+
+  .pic a img {
+    border: 2px solid #01c3ff;
+    width: 70px;
+  }
+
+  .jeeinsidetable tr td {
+    padding: 0;
+    text-align: center;
+    width: 100px;
+
+  }
+
+  .olvctable .MODE-OF-INSTRUCTIONS span {
+    padding: 0.3rem;
+    font-size: 0.7rem;
+
+  }
+
+  .olvctable tr td {
+    padding: 0;
+
+  }
+
+  .olvctable {
+    font-size: 5px;
+
+  }
+
+  .olvcheading {
+    font-size: 15px;
+
+  }
+  .Online_live_-class-container {
+    /* margin: 0 1rem; */
+    padding: 10px 0;
+  }
+  .Online_live_-class-container_COURSE_FACULTY {
+
+    flex-direction: column;
+    white-space: nowrap;
+  }
+  .Online_live_-class-container_HIGHLIGHTS_COURSE {
+    flex-direction: column;
+}
+.olvc_card_dataTEXT {
+  width: auto;
+}
+#HIGHLIGHTScourse {
+  font-size: 13px;
+}
+.OCF_COURSE_BROCHURE {
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+.flyer {
+    font-size: 14px;
+}
+.otsh_1 h1 {
+  font-size: 13px !important;
+}
+
+.olvc_card_dataIMG, .olvc_card_dataIMG_bg {
+  flex-direction: column;
+}
+}
+
+@media (max-width:600px){
+  .Online_live_-class-container h2 {
+    text-align: center;
+    font-size: 1rem;
+}
+.Online_live_-class-container_HIGHLIGHTS_COURSE img {
+    width: 100%;
+    height: auto;
+}
+.Online_live_-class-container_ADVANTAGES_LEARNING_content_img_continer {
+    background: #bdcedd;
+    width: 100px;
+    height: 100px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    border-radius: 0.5rem;
+    transform: rotate(45deg);
+}
+ 
+.Online_live_-class-container_ADVANTAGES_LEARNING_content {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+.olvc_card_dataIMG, .olvc_card_dataIMG_bg {
+  flex-direction: column;
+  gap: 12px;
+}
+.olvc_card_dataTEXT p {
+  font-family: Merienda,cursive;
+  font-size: 17px;
+  text-align: center;
+}
+.JeeOlvcsCArdImg img {
+  max-width: 100%;
+}
+#HIGHLIGHTScourse {
+  font-size: 13px;
+}
+.OCF_COURSE_BROCHURE {
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+.flyer {
+    font-size: 14px;
+}
+.otsh_1 h1 {
+  font-size: 13px !important;
+}
+.olvc_card_dataTEXT {
+  /* background: rgb(54, 128, 151); */
+  /* background: linear-gradient(45deg, transparent,#faeff3); */
+  padding: 0;
+  top: 0;
+  position: relative;
+  left: 0;
+  height: 110px;
+  width: 22rem;
+  text-align: start;
+  z-index: -99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.olvc_card_dataIMG img {
+  width: 100%;
+}
+.olvc_card_dataIMG img{
+  max-width: 200px;
+}
+.olvc_card_dataIMG_bg {
+ width: 150px;
+ height: 150px;
+}
+}
