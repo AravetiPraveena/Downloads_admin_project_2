@@ -28,3 +28,21 @@
    border-radius: 20px;
 
 }
+.inputContainerInUserLogin{
+    position: relative;
+}
+.visibilityButton{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    background: transparent;
+
+}
+.visibilityButton:hover  {
+    background-color: transparent;
+    color: black;
+}
+.eyeIconInLogin{
+    font-size: 1.2rem;
+    color: gray;
+}

@@ -14,14 +14,14 @@ import wbjeeimage from './Images/wbjeeimage-removebg-preview.png'
 import neetimage from './Images/neetimagedownload-removebg-preview.png'
 import { NavData } from "../Header/NavData";
 import { Link } from "react-router-dom";
-
+import UgDownloadDropDown from "./UgDownloadsAdmin/UgDownloadDropDown";
 
 
 
 
 
 const Download = () => {
-
+    
 
     return (
         <div>
@@ -30,6 +30,7 @@ const Download = () => {
             <div className="Downloadsdiv">
                 <div className="DownloadsUgdiv">
                     <h1>UG EXAMS</h1>
+                    <UgDownloadDropDown/>
                     <div className="DownloadsUgButton">
                         <div className="DownloadsUgButtondiv">
                             <div className="DownloadsUgButtonimg">

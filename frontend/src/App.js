@@ -109,7 +109,7 @@ import Contact from "./components/ug_homepage/components/Contact/Contact.js";
 import { Pg_Countact } from "./components/PG/PG_homePage/Pg_Countact_Page/Pg_Countact.jsx";
 import Faq from "./components/ug_homepage/components/Faqs/Faq.js";
 import FaqPG from "./components/PG/Faqs/Faq.js";
-import Download from "./components/ug_homepage/components/Downloads/Download.jsx";
+import Download from "./components/ug_homepage/components/Downloads/Download.jsx"; 
 import IitjeeDownloadPage from "./components/ug_homepage/components/Downloads/IitjeeDownloadPage.jsx";
 import PG_DOWNLOAD from "./components/PG/PG DOWNLOADS/PG_DOWNLOAD.jsx";
 import JeeAdvancedDownloadPage from "./components/ug_homepage/components/Downloads/JeeAdvancedDownloadPage.jsx";
@@ -126,7 +126,11 @@ import TifrDownloadPage from "./components/PG/PG DOWNLOADS/TifrDownloadPage.jsx"
 import IsroDownloadPage from "./components/PG/PG DOWNLOADS/IsroDownloadPage.jsx";
 import BarcDownloadPage from "./components/PG/PG DOWNLOADS/BarcDownloadPage.jsx";
 import JestDownloadPage from "./components/PG/PG DOWNLOADS/JestDownloadPage.jsx";
-import { LoginForDownload } from "./components/ug_homepage/components/Downloads/LoginForDownload.jsx";
+import { LoginForDownload } from "./components/ug_homepage/components/Downloads/LoginAndSignup/LoginForDownload.jsx";
+import { SignUp } from "./components/ug_homepage/components/Downloads/LoginAndSignup/SignUp.jsx";
+import { ForgotPassword } from "./components/ug_homepage/components/Downloads/LoginAndSignup/ForgotPassword.jsx";
+import { ResetPassword } from "./components/ug_homepage/components/Downloads/LoginAndSignup/ResetPassword.jsx";
+import { CardsInDownload } from "./components/ug_homepage/components/Downloads/UgDownloadsAdmin/CardsInDownload.jsx";
 
 
 
@@ -432,7 +436,14 @@ const App = () => {
 
           {/* ======================================================== UG DOWNLOADS PAGE ============================================================================= */}
           {/* <Route path="/download" element={<Download />} /> */}
-          <Route path="/download" element={<LoginForDownload />} />
+          <Route path="/download" element={<CardsInDownload />} />
+          
+          {/* login signup links starts here */}
+          {/* <Route path="/download" element={<LoginForDownload />} /> */}
+          <Route path="/signup" element={<SignUp/>} />
+          <Route path="/resetPageToTest/:id/:token" element={<ResetPassword/>} />
+          <Route path="/forgotPassword" element={<ForgotPassword/>} />
+          {/* login signup links ends here */}
           <Route path="/iitjeemaindownload" element={<IitjeeDownloadPage />} />
           <Route path="/iitjeeadvanceddownload" element={<JeeAdvancedDownloadPage />} />
           <Route path="/neetdownload" element={<NeetDownloadPage />} />
