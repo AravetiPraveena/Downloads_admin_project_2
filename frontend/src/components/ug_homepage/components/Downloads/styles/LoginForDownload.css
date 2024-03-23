@@ -1,0 +1,48 @@
+.containerInDownloads{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px ;
+    gap: 40px;
+
+}
+
+.formContainerInDownload{
+    background-color: aliceblue;
+    padding: 60px;
+
+}
+.formContainerInDownload form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.formContainerInDownload input{
+    display: flex;
+   padding: 20px;
+   border: 1px solid black;
+   border-radius: 20px;
+
+}
+.inputContainerInUserLogin{
+    position: relative;
+}
+.visibilityButton{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    background: transparent;
+
+}
+.visibilityButton:hover  {
+    background-color: transparent;
+    color: black;
+}
+.eyeIconInLogin{
+    font-size: 1.2rem;
+    color: gray;
+}
