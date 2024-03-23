@@ -1,5 +1,5 @@
-import React from 'react'
-import { Nav } from '../../UG/Nav';
+// import React from 'react'
+// import { Nav } from '../../UG/Nav';
 import { Link } from 'react-router-dom'
 import { IoMdHome } from "react-icons/io";
 import image from './Images/plan-your-online-course-removebg-preview.png'
@@ -13,11 +13,34 @@ import mhcetimage from './Images/mhcetimage-removebg-preview.png'
 import wbjeeimage from './Images/wbjeeimage-removebg-preview.png'
 import neetimage from './Images/neetimagedownload-removebg-preview.png'
 import Footer from '../../UG/Footer';
+import React, { useState, useEffect } from 'react';
+import { Nav } from '../../UG/Nav';
+// import Pg_Download_Admin_Page from '../Pg_Downloads_Page/Pg_Download_Admin_Page';
 
 
 
 
 const PG_DOWNLOAD = () => {
+
+    const [exams, setExams] = useState([]);
+    const [error, setError] = useState(null);
+
+
+
+    useEffect(() => {
+        const fetchExams = async () => {
+          try {
+            const response = await axios.get('http://localhost:5007/exams/102'); // Fetch exams for course_id 102
+            setExams(response.data);
+          } catch (err) {
+            console.error('Error fetching exams:', err);
+            setError('Error fetching exams. Please try again.');
+          }
+        };
+    
+        fetchExams();
+      }, []);
+    
     return (
         <div>
             {/* import logo from '../../logo2.jpeg' */}
@@ -32,6 +55,7 @@ const PG_DOWNLOAD = () => {
                                     </Link>
                                 </div>
 
+                        
                                 <div className="exam_login_menu  ">
                                     <li>
                                         <Link to='/PgHome' className={NavData.navlist} id='exam_login_menu_home'>
@@ -50,7 +74,15 @@ const PG_DOWNLOAD = () => {
             <div className="Downloadsdiv">
                 <div className="DownloadsUgdiv">
                     <h1>PG EXAMS</h1>
-                    <div className="DownloadsUgButton">
+                    {/* <div>
+                       <Link to={'/Pg_Downloads_AdminPage'}><button>Admin page</button></Link>
+                    </div> */}
+
+                    {/* <div>
+                        <Link to={'/Pg_downloadadminpage_two'}><button>Admin Page </button></Link>
+                    </div>
+                   */}
+                      <div className="DownloadsUgButton">
                         <div className="DownloadsUgButtondiv">
                             <div className="DownloadsUgButtonimg">
                                 <img src={kcetimage} alt="" />
@@ -87,21 +119,30 @@ const PG_DOWNLOAD = () => {
                             </div>
                             <a href="/barcdownload">BARC</a>
                         </div>
-                        <div className="DownloadsUgButtondiv">
+                         <div className="DownloadsUgButtondiv">
                             <div className="DownloadsUgButtonimg">
                                 <img src={mhcetimage} alt="" />
                             </div>
                             <a href="/jestdownload">JEST</a>
-                        </div>
-                    </div>
+                        </div> 
+                    </div> 
+                 
+
+
                 </div>
                 <div>
 
                 </div>
             </div>
 
+
+            {/* <Pg_Download_Admin_Page/> */}
+
             <Footer />
         </div>
+
+   
+
     )
 }
 

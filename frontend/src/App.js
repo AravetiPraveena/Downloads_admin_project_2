@@ -125,17 +125,17 @@ import EseDownloadPage from "./components/PG/PG DOWNLOADS/EseDownloadPage.jsx";
 import TifrDownloadPage from "./components/PG/PG DOWNLOADS/TifrDownloadPage.jsx";
 import IsroDownloadPage from "./components/PG/PG DOWNLOADS/IsroDownloadPage.jsx";
 import BarcDownloadPage from "./components/PG/PG DOWNLOADS/BarcDownloadPage.jsx";
-import JestDownloadPage from "./components/PG/PG DOWNLOADS/JestDownloadPage.jsx";
+// import JestDownloadPage from "./components/PG/PG DOWNLOADS/JestDownloadPage.jsx";
+
+// import Pg_Download_Admin_Page from  "./components/PG/Pg_Downloads_Page/Pg_Download_Admin_Page.jsx";
 
 
 
 
+// import Pg_Downloads_AdminPage from './components/PG/Pg_Downloads_AdminPage.jsx';
 
-
-
-
-
-
+import PG_Downloads_pdfList from './components/PG/PG_Downloads_pdfList.jsx';
+import Pg_downloadadminpage_two from './components/PG/Pg_downloadadminpage_two.jsx';
 
 
 
@@ -157,7 +157,8 @@ const App = () => {
           {/* ======================================================== LANDING PAGE ================================================================ */}
           {/* This is a link for landing page */}
           <Route path="/" element={<Egate />} />
-
+          
+         
           {/* ======================================================== ALL HOME PAGES ================================================================ */}
 
           {/* These are the links for all Home pages */}
@@ -452,8 +453,16 @@ const App = () => {
           <Route path="/tifrdownload" element={<TifrDownloadPage/>} />
           <Route path="/isrodownload" element={<IsroDownloadPage/>} />
           <Route path="/barcdownload" element={<BarcDownloadPage/>} />
-          <Route path="/jestdownload" element={<JestDownloadPage/>} />
+          {/* <Route path="/jestdownload" element={<JestDownloadPage/>} /> */}
 
+
+
+{/* ======================================================== PG DOWNLOADS PAGE ============================================================================= */}
+{/* <Route path='/Pg_Downloads_AdminPage' element={<Pg_Downloads_AdminPage/>} /> */}
+<Route path='/PG_Downloads_pdfList' element ={<PG_Downloads_pdfList/>} />
+<Route path='/Pg_downloadadminpage_two' element={<Pg_downloadadminpage_two/>} />
+
+{/* <Route path = "/Pg_Download_Admin_Page" element={<Pg_Download_Admin_Page/>} /> */}
 
 
           
