@@ -137,3 +137,132 @@ const IitjamDownloadPage = () => {
 }
 
 export default IitjamDownloadPage
+
+
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import { MdDownload } from 'react-icons/md';
+// import { FaSearch } from "react-icons/fa";
+// import { Nav } from '../../UG/Nav';
+// import { Link } from 'react-router-dom';
+// import { IoMdHome } from "react-icons/io";
+// // import Footer from '../../UG/Footer'; // Commented out to remove footer
+// import axios from 'axios';
+
+// const IitjamDownloadPage = () => {
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [pdfs, setPdfs] = useState([]);
+//   const [error, setError] = useState(null);
+//   const [iitjamPdfs, setIitjamPdfs] = useState([]);
+
+//   useEffect(() => {
+//     const fetchPdfs = async () => {
+//       try {
+//         const response = await axios.get('http://localhost:5007/exams_pdfs');
+//         const iitjamPdfsData = response.data.filter(pdf => pdf.description.trim().toLowerCase().includes('iitjam'));
+//         setIitjamPdfs(iitjamPdfsData);
+//         setPdfs(iitjamPdfsData); // Initialize pdfs with all PDFs
+//       } catch (err) {
+//         console.error('Error fetching PDFs:', err);
+//         setError('Error fetching PDFs. Please try again.');
+//       }
+//     };
+//     fetchPdfs();
+//   }, []);
+
+//   const handleSearch = (event) => {
+//     const query = event.target.value.toLowerCase();
+//     setSearchQuery(query);
+//     const filteredPdfs = iitjamPdfs.filter(pdf => pdf.description.toLowerCase().includes(query));
+//     setPdfs(filteredPdfs);
+//   };
+
+//   return (
+//     <div>
+//       <div className="ugexam_header">
+//         {Nav.map((NavData, index) => (
+//           <div className="header ug_exam_header" key={index}>
+//             <div className={NavData.logo_img_container}>
+//               <Link to={"/"}>
+//                 <img src={NavData.logo} alt="" />
+//               </Link>
+//             </div>
+//             <div className="exam_login_menu">
+//               <li>
+//                 <Link to='/PgHome' className={NavData.navlist} id='exam_login_menu_home'>
+//                   <IoMdHome /> {NavData.link1}
+//                 </Link>
+//               </li>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//       <div>
+//         <div className="IitMainHeading">
+//           <h2>IIT JAM - PREVIOUS QUESTION PAPERS WITH SOLUTIONS</h2>
+
+//         </div>
+//         <div className='Download_Searchbar'>
+//           <FaSearch />
+//           <input
+//             type="text"
+//             placeholder="Search by year (e.g., 2024)"
+//             value={searchQuery}
+//             onChange={handleSearch}
+//           />
+//         </div>
+
+
+
+//         {error && <p>{error}</p>}
+//         <table className="Iitmainstable">
+//           <thead>
+//             <tr className="Iitmainstrheading">
+//               <th colSpan={4}>IIT JAM - 2024 SESSION</th>
+//             </tr>
+//             <tr>
+//               <th>S.NO</th>
+//               <th>DATE/SESSION</th>
+//               <th>Question Papers PDF</th>
+//               <th>Solution PDF</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {pdfs.map((pdf, index) => (
+//               <tr key={index}>
+//                 <td>{index + 1}</td>
+//                 <td>{pdf.description}</td>
+//                 <td>
+//                   <a
+//                     href={`http://localhost:5007${pdf.qs_pdf_path}`}
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     style={{ color: 'black' }}
+//                   >
+//                     <MdDownload /> Question Paper
+//                   </a>
+//                 </td>
+//                 <td>
+//                   <a
+//                     href={`http://localhost:5007/uploads${pdf.sol_pdf_name}`}
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     style={{ color: 'black' }}
+//                   >
+//                     <MdDownload /> Solution
+//                   </a>
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </div>
+//       {/* <Footer /> */}
+//     </div>
+//   );
+// }
+
+// export default IitjamDownloadPage;
+

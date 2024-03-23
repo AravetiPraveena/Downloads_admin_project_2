@@ -1,140 +1,111 @@
-import React, { useState } from 'react';
-import { MdDownload } from 'react-icons/md';
-import { FaSearch } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Nav } from '../../UG/Nav';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { IoMdHome } from "react-icons/io";
+import { FaSearch } from "react-icons/fa";
+import { MdDownload } from 'react-icons/md';
 import Footer from '../../UG/Footer';
 
+function PG_Downloads_pdfList() {
+    const [pdfs, setPdfs] = useState([]);
+    const [error, setError] = useState(null);
+    const [numPages, setNumPages] = useState(null);
+    const [searchQuery, setSearchQuery] = useState('');
 
+    const handleSearch = (event) => {
+        setSearchQuery(event.target.value.toLowerCase());
+    };
 
-const GateDownloadPage = () => {
+    useEffect(() => {
+        const fetchPdfs = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5007/exams_pdfs`);
+                const filteredPdfs = response.data.filter(pdf => pdf.exam_id === 'gate');
+                setPdfs(filteredPdfs);
+            } catch (err) {
+                console.error('Error fetching PDFs:', err);
+                setError('Error fetching PDFs. Please try again.');
+            }
+        };
 
-  const [searchQuery, setSearchQuery] = useState('');
+        fetchPdfs();
+    }, []);
 
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value.toLowerCase());
-  };
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-GB'); // Adjust locale as needed
+    };
 
-  const sessions = [
-    '24<sup>TH</sup> JANUARY, 2024 AFTERNOON SESSION',
-    '24<sup>TH</sup> JANUARY, 2024 FORENOON SESSION',
-    '25<sup>TH</sup> JANUARY, 2024 FORENOON SESSION',
-    '25<sup>TH</sup> JANUARY, 2024 AFTERNOON SESSION',
-    '24<sup>TH</sup> FEBRUARY, 2024 FORENOON SESSION',
-    '24<sup>TH</sup> FEBRUARY, 2024 AFTERNOON SESSION',
-    '25<sup>TH</sup> FEBRUARY, 2024 FORENOON SESSION',
-    '25<sup>TH</sup> FEBRUARY, 2024 AFTERNOON SESSION',
-  ];
+    return (
+        <div>
+            <div className="ugexam_header">
+                {Nav.map((NavData, index) => (
+                    <div className="header ug_exam_header" key={index}>
+                        <div className={NavData.logo_img_container}>
+                            <Link to={"/"}>
+                                <img src={NavData.logo} alt="" />
+                            </Link>
+                        </div>
+                        <div className="exam_login_menu  ">
+                            <li>
+                                <Link to='/PgHome' className={NavData.navlist} id='exam_login_menu_home'>
+                                    <IoMdHome /> {NavData.link1}
+                                </Link>
+                            </li>
+                        </div>
+                    </div>
+                ))}
+            </div>
 
-  const filteredJanuarySessions = sessions.filter(session =>
-    session.includes("JANUARY, 2024") && session.includes(searchQuery)
-  );
+            <div className="IitMainHeading">
+                <h2>GATE - PREVIOUS QUESTION PAPERS WITH SOLUTIONS</h2>
+            </div>
 
-  const filteredFebruarySessions = sessions.filter(session =>
-    session.includes("FEBRUARY, 2024") && session.includes(searchQuery)
-  );
+            <div className='Download_Searchbar'>
+                <FaSearch />
+                <input
+                    type="text"
+                    placeholder="Search by year (e.g., 2024)"
+                    value={searchQuery}
+                    onChange={handleSearch}
+                />
+            </div>
 
-
-  return (
-    <div>
-      {/* import logo from '../../logo2.jpeg' */}
-      <div>
-        <div className="ugexam_header">
-          {Nav.map((NavData, index) => {
-            return (
-              <div className="header ug_exam_header" key={index}>
-                <div className={NavData.logo_img_container}>
-                  <Link to={"/"}>
-                    <img src={NavData.logo} alt="" />
-                  </Link>
-                </div>
-
-                <div className="exam_login_menu  ">
-                  <li>
-                    <Link to='/PgHome' className={NavData.navlist} id='exam_login_menu_home'>
-                      <IoMdHome /> {NavData.link1}
-                    </Link>
-                  </li>
-
-                </div>
-              </div>
-
-            );
-          })}
+            {error && <p>{error}</p>}
+            <table className="pdf-table">
+                <thead>
+                    <tr>
+                        <th>S.NO</th>
+                        <th>Date/Year</th>
+                        <th>Description</th>
+                        <th>Question Papers PDF</th>
+                        <th>Solution PDF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {pdfs.map((pdf, index) => (
+                        <tr key={index}>
+                            <td>{pdf.pdf_s_id}</td>
+                            <td>{formatDate(pdf.Date_Year)}</td>
+                            <td>{pdf.description}</td>
+                            <td>
+                                <a href={`http://localhost:5007${pdf.qs_pdf_path}`} target="_blank">
+                                    <MdDownload /> Question Paper
+                                </a>
+                            </td>
+                            <td>
+                                <a href={`http://localhost:5007/uploads/${pdf.sol_pdf_name}`} target="_blank">
+                                    <MdDownload /> Solution
+                                </a>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            {/* <Footer /> */}
         </div>
-      </div>
-
-
-
-      <div className="IItMainDownloads">
-        <div className="IitMainHeading">
-          <h2>GATE - PREVIOUS QUESTION PAPERS WITH SOLUTIONS</h2>
-        </div>
-        <div className="Iitmainstablediv">
-          <div className='Download_Searchbar'>
-            <FaSearch />
-            <input
-              type="text"
-              placeholder="Search by year (e.g., 2024)"
-              value={searchQuery}
-              onChange={handleSearch}
-            />
-          </div>
-
-          <table className="Iitmainstable">
-            <tr className="Iitmainstrheading">
-              <th colSpan={4}>GATE - 2024 JANUARY SESSION</th>
-            </tr>
-            <tr>
-              <th>S.No</th>
-              <th>DATE/SESSION</th>
-              <th>QUESTION PAPERS</th>
-              <th>SOLUTIONS</th>
-            </tr>
-            {filteredJanuarySessions.map((session, index) => (
-
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td dangerouslySetInnerHTML={{ __html: session }}></td>
-                <td>
-                  <button><MdDownload /> Question Paper</button>
-                </td>
-                <td>
-                  <button><MdDownload /> Solution</button>
-                </td>
-              </tr>
-            ))}
-          </table>
-          <table className="Iitmainstable">
-            <tr className="Iitmainstrheading">
-              <th colSpan={4}>GATE - 2024 FEBRUARY SESSION</th>
-            </tr>
-            <tr>
-              <th>S.No</th>
-              <th>DATE/SESSION</th>
-              <th>QUESTION PAPERS</th>
-              <th>SOLUTIONS</th>
-            </tr>
-            {filteredFebruarySessions.map((session, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td dangerouslySetInnerHTML={{ __html: session }}></td>
-                <td>
-                  <button><MdDownload /> Question Paper</button>
-                </td>
-                <td>
-                  <button><MdDownload /> Solution</button>
-                </td>
-              </tr>
-            ))}
-          </table>
-        </div>
-      </div>
-
-      <Footer />
-    </div>
-  )
+    );
 }
 
-export default GateDownloadPage
+export default PG_Downloads_pdfList;
