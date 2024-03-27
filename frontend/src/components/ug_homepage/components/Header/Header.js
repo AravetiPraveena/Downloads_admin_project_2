@@ -83,7 +83,7 @@ const Header = () => {
                   </li>
                   <li>
                     <a
-                      href="/download"
+                      href="/CardsInDownload"
                       target=""
                       rel="noopener noreferrer"
                       className={NavData.navlist}

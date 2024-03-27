@@ -1,4 +1,5 @@
 const express = require("express");
+const router = express.Router();
 const cors = require("cors");
 const nodemon = require("nodemon");
 const mysql = require("mysql");
@@ -6,28 +7,15 @@ const bcrypt = require("bcryptjs");
 const cookieParser = require("cookie-parser");
 const nodemailer=require("nodemailer")
 const jwt = require("jsonwebtoken");
-const app = express();
-app.use(cookieParser());
-app.use(express.json());
-app.use(cors())
-
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "downloads_admin_project",
-});
-
-app.get("/", (req, res) => {
-  res.send("hi this is from server");
-});
-
-app.listen(5007, () => {
-  console.log("listening in project");
-});
+const db = require("./Database");
+router.use(cookieParser());
+router.use(express.json());
+router.use(cors())
 
 
-app.post('/register',(req,res)=>{
+
+
+router.post('/register',(req,res)=>{
   const sql='insert into user_credentials (user_name, user_email, user_password) values (?,?,?)'
   
   const values=[
@@ -42,7 +30,7 @@ app.post('/register',(req,res)=>{
   })
 })
 
-app.post('/login',(req,res)=>{
+router.post('/login',(req,res)=>{
   const sql='select * from user_credentials where `user_email`= ? and `user_password`=?'
   const { email, password } = req.body;
   const values=[email,password]
@@ -60,7 +48,7 @@ app.post('/login',(req,res)=>{
   })
 })
 
-// app.post('/forgotPassword',(req,res)=>{
+// router.post('/forgotPassword',(req,res)=>{
 //   const email=req.body;
 //   const checkUser='select * from user_credentials where user_email=?'
 //   db.query(checkUser,email,(err,result)=>{
@@ -71,7 +59,7 @@ app.post('/login',(req,res)=>{
 
 // })
 
-app.post("/forgotPassword", async (req, res) => {
+router.post("/forgotPassword", async (req, res) => {
   const { email } = req.body;
   console.log(email+"in forgotPassword endpont from server")
 
@@ -123,7 +111,7 @@ app.post("/forgotPassword", async (req, res) => {
 });
 
 
-app.post("/resetPageToTest/:id/:token", (req, res) => {
+router.post("/resetPageToTest/:id/:token", (req, res) => {
   const { id, token } = req.params;
   const { resetPassword } = req.body;
 
@@ -150,12 +138,12 @@ app.post("/resetPageToTest/:id/:token", (req, res) => {
   });
 });
 
-app.get('/protected',(req,res)=>{
+router.get('/protected',(req,res)=>{
     const user={id:56};
     const tokenSending=jwt.sign({user},'my_secret_key');
     res.json({token:tokenSending})
 })
-app.get('/verifyToken',(req,res)=>{
+router.get('/verifyToken',(req,res)=>{
   jwt.verify(req.token,'my_secret_key',(err,result)=>{
     if(err){
       res.sendStatus(403);
@@ -168,3 +156,5 @@ app.get('/verifyToken',(req,res)=>{
     }
   })
 })
+ 
+module.exports = router;

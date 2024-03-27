@@ -1,4 +1,5 @@
 const express = require("express");
+const router = express.Router();
 const cors = require("cors");
 const nodemon = require("nodemon");
 const mysql = require("mysql");
@@ -7,31 +8,33 @@ const cookieParser = require("cookie-parser");
 const nodemailer=require("nodemailer")
 const jwt = require("jsonwebtoken");
 const app = express();
-app.use(cookieParser());
-app.use(express.json());
-app.use(cors())
+router.use(cookieParser());
+router.use(express.json());
+router.use(cors())
 const path=require('path')
 const multer=require('multer')
+const db = require("./Database");
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database:'downloads_admin_project'
-});
+
+// const db = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: '',
+//   database:'downloads_admin_project'
+// });
  
-db.connect(err => {
-  if (err) {
-    console.error('Error connecting to database:', err.code);
-    console.error(err.message);
-    return;
-  }
-  console.log('Connected to the database');
-});
+// db.connect(err => {
+//   if (err) {
+//     console.error('Error connecting to database:', err.code);
+//     console.error(err.message);
+//     return;
+//   }
+//   console.log('Connected to the database');
+// });
 
 
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+router.use('/uploads', express.static(path.join(__dirname, 'uploads')));
  
 // Multer storage configuration
 const storage = multer.diskStorage({
@@ -50,7 +53,7 @@ const storage = multer.diskStorage({
  
  
  
-app.get('/courses', async (req, res) => {
+router.get('/courses', async (req, res) => {
     try {
       const query = 'SELECT * FROM 1egquiz_courses where course_id between 101 and 102 ';
       db.query(query, (error, results) => {
@@ -68,7 +71,7 @@ app.get('/courses', async (req, res) => {
   });
  
  
-  app.get('/exams/:courseId', (req, res) => {
+  router.get('/exams/:courseId', (req, res) => {
     const courseId = req.params.courseId;
     const sql = `SELECT * FROM 2egquiz_exam WHERE course_id = ${courseId}`;
     db.query(sql, (err, result) => {
@@ -86,7 +89,7 @@ app.get('/courses', async (req, res) => {
 
 
 
-app.post('/upload', upload.fields([{ name: 'qs_pdf', maxCount: 1 }, { name: 'sol_pdf', maxCount: 1 }]), async (req, res) => {
+router.post('/upload', upload.fields([{ name: 'qs_pdf', maxCount: 1 }, { name: 'sol_pdf', maxCount: 1 }]), async (req, res) => {
   const { course_id, exam_id, description } = req.body;
   const qs_pdf_name = req.files['qs_pdf'][0].originalname;
   const sol_pdf_name = req.files['sol_pdf'][0].originalname;
@@ -123,7 +126,7 @@ app.post('/upload', upload.fields([{ name: 'qs_pdf', maxCount: 1 }, { name: 'sol
 
 
 
-app.get('/exams_pdfs', (req, res) => {
+router.get('/exams_pdfs', (req, res) => {
   // Query the database to retrieve the specified columns from the pgqs_sol_pdfs table
   const selectQuery = `SELECT description, qs_pdf_name, sol_pdf_name FROM ug_qs_sol_pdfs`;
   db.query(selectQuery, (error, results) => {
@@ -149,10 +152,11 @@ app.get('/exams_pdfs', (req, res) => {
 
 
 
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.send("hi this is from server2.json");
   });
-  app.listen(5007, () => {
-    console.log("listening in server 2");
-  });
-  
+  // router.listen(5007, () => {
+  //   console.log("listening in server 2");
+  // });
+   
+module.exports = router;

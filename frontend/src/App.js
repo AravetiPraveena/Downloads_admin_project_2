@@ -109,7 +109,7 @@ import Contact from "./components/ug_homepage/components/Contact/Contact.js";
 import { Pg_Countact } from "./components/PG/PG_homePage/Pg_Countact_Page/Pg_Countact.jsx";
 import Faq from "./components/ug_homepage/components/Faqs/Faq.js";
 import FaqPG from "./components/PG/Faqs/Faq.js";
-import Download from "./components/ug_homepage/components/Downloads/Download.jsx"; 
+import  CardsInDownload  from "./components/ug_homepage/components/Downloads/UgDownloadsAdmin/CardsInDownload.jsx";
 import IitjeeDownloadPage from "./components/ug_homepage/components/Downloads/IitjeeDownloadPage.jsx";
 import PG_DOWNLOAD from "./components/PG/PG DOWNLOADS/PG_DOWNLOAD.jsx";
 import JeeAdvancedDownloadPage from "./components/ug_homepage/components/Downloads/JeeAdvancedDownloadPage.jsx";
@@ -131,7 +131,7 @@ import { LoginForDownload } from "./components/ug_homepage/components/Downloads/
 import { SignUp } from "./components/ug_homepage/components/Downloads/LoginAndSignup/SignUp.jsx";
 import { ForgotPassword } from "./components/ug_homepage/components/Downloads/LoginAndSignup/ForgotPassword.jsx";
 import { ResetPassword } from "./components/ug_homepage/components/Downloads/LoginAndSignup/ResetPassword.jsx";
-import { CardsInDownload } from "./components/ug_homepage/components/Downloads/UgDownloadsAdmin/CardsInDownload.jsx";
+// import { CardsInDownload } from "./components/ug_homepage/components/Downloads/UgDownloadsAdmin/CardsInDownload.jsx";
 
 
 
@@ -445,7 +445,7 @@ const App = () => {
 
           {/* ======================================================== UG DOWNLOADS PAGE ============================================================================= */}
           {/* <Route path="/download" element={<Download />} /> */}
-          <Route path="/download" element={<CardsInDownload />} />
+          <Route path="/CardsInDownload" element={<CardsInDownload />} />
           
           {/* login signup links starts here */}
           {/* <Route path="/download" element={<LoginForDownload />} /> */}
@@ -453,7 +453,7 @@ const App = () => {
           <Route path="/resetPageToTest/:id/:token" element={<ResetPassword/>} />
           <Route path="/forgotPassword" element={<ForgotPassword/>} />
           {/* login signup links ends here */}
-          <Route path="/iitjeemaindownload" element={<IitjeeDownloadPage />} />
+          <Route path="/iitjeemaindownload/:exam_id/:course_id" element={<IitjeeDownloadPage />} />
           <Route path="/iitjeeadvanceddownload" element={<JeeAdvancedDownloadPage />} />
           <Route path="/neetdownload" element={<NeetDownloadPage />} />
           <Route path="/ap_eapcetdownload" element={<AP_EAPCETDownloadPage />} />
@@ -466,7 +466,7 @@ const App = () => {
 
            {/* ======================================================== PG DOWNLOADS PAGE ============================================================================= */}
            <Route path="/pgdownload" element={<PG_DOWNLOAD />} />
-          <Route path="/gatedownload" element={<GateDownloadPage />} />
+          <Route path="/gatedownload/:exam_id/:course_id" element={<GateDownloadPage />} />
           <Route path="/iitjamdownload" element={<IitjamDownloadPage />} />
           <Route path="/esedownload" element={<EseDownloadPage />} />
           <Route path="/tifrdownload" element={<TifrDownloadPage/>} />
