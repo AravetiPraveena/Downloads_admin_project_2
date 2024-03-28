@@ -6,6 +6,16 @@ import axios from 'axios';
 import PG_Downloads_pdfList from './PG_Downloads_pdfList';
 import './Pg_downloadadminpage_two.css';
 import Footer from '.././UG/Footer';
+import Downloads_Course_Exam_Creation from './Downloads_Course_Exam_Creation';
+
+
+
+
+
+
+
+
+
 
 const Pg_downloadadminpage_two = () => {
     const [courses, setCourses] = useState([]);
@@ -21,6 +31,21 @@ const Pg_downloadadminpage_two = () => {
     const [text, setText] = useState('');
     const [image, setImage] = useState(null);
     const [showUGExamCards, setShowUGExamCards] = useState(false);
+
+
+
+    // delete functionality
+    const [showDeleteFunctionality, setShowDeleteFunctionality] = useState(false);
+    // end
+
+
+
+
+
+
+
+
+
 
     useEffect(() => {
         async function fetchCourses() {
@@ -125,7 +150,35 @@ const Pg_downloadadminpage_two = () => {
 
 
 
+// Delete Functionality 
 
+const handleDeleteButtonClick = () => {
+    // Check if both course and exam are selected
+    if (!selectedCourse || !selectedExam) {
+        setMessage('Please select both a course and an exam');
+        return;
+    }
+
+    // Make an HTTP DELETE request to delete the PDF
+    fetch(`/exams_pdfs/${selectedExam}/${selectedCourse}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error('Failed to delete PDF');
+    })
+    .then(data => {
+        setMessage(data.message);
+    })
+    .catch(error => {
+        setMessage('Error deleting PDF');
+        console.error('Error deleting PDF:', error);
+    });
+};
+
+// 
 
 
 
@@ -158,10 +211,14 @@ const Pg_downloadadminpage_two = () => {
             <div className='admin_project_container2'>
 
 
+{/* course and exam creation */}
+<Downloads_Course_Exam_Creation/>
+
+{/*  */}
 
 
                 <div>
-                    <h1 className='pdf_table_heading'>UGExam Cards Uploader</h1>
+                    <h1 className='pdf_table_heading'>Exam Cards Uploader</h1>
 
                     <div className="admin_project_item">
                         <label htmlFor="courseSelect" className="admin_label">Select a Course:</label>
@@ -224,7 +281,7 @@ const Pg_downloadadminpage_two = () => {
 
 
                 <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'center', gap: '5rem' }}>
-                    <h1 className='pdf_table_heading'>Exams Uploader</h1>
+                    <h1 className='pdf_table_heading'>Exams Pdfs Uploader</h1>
                     <button className='admin_button' onClick={() => setShowExamOptions(!showExamOptions)}>Add Exam Pdfs +</button>
                 </div>
                 {showExamOptions && (
@@ -294,6 +351,56 @@ const Pg_downloadadminpage_two = () => {
 
 
 
+{/* Delete functionality for the pdfs */}
+
+{/* <div>
+            <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'center', gap: '5rem' }}>
+                <h1 className='pdf_table_heading'>Delete Exams</h1>
+                <button className='admin_button' onClick={() => setShowDeleteFunctionality(!showDeleteFunctionality)}>Delete Exam Pdfs +</button>
+            </div>
+
+            {showDeleteFunctionality && (
+                <>
+                    <div className="admin_project_item">
+                        <label htmlFor="courseSelect" className="admin_label">Select a Course:</label>
+                        <select id="courseSelect" value={selectedCourse} onChange={handleCourseChange} className="admin_select">
+                            <option value="">Select a Course</option>
+                            {courses.map(course => (
+                                <option key={course.course_id} value={course.course_id}>
+                                    {course.course_name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="admin_project_item">
+                        <label htmlFor="examSelect" className="admin_label">Select {selectedCourse} Exam:</label>
+                        <select id="examSelect" value={selectedExam} onChange={handleExamChange} className="admin_select">
+                            <option value="">Select an Exam</option>
+                            {exams.map(exam => (
+                                <option key={exam.exam_id} value={exam.exam_id}>
+                                    {exam.exam_name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <button onClick={handleDeleteButtonClick} className="admin_button">Delete PDF</button>
+                    {message && <p className="admin_message">{message}</p>}
+                </>
+            )}
+        </div> */}
+
+{/* Delete functionality for the pdfs */}
+
+
+
+
+
+
+
+
+
           
             {/* <PG_Downloads_pdfList /> */}
             </div>
@@ -320,130 +427,4 @@ export default Pg_downloadadminpage_two;
 
 
 
-
-
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import './Pg_downloadadminpage_two.css';
-// import Footer from '.././UG/Footer';
-
-// const Pg_downloadadminpage_two = () => {
-//     const [courses, setCourses] = useState([]);
-//     const [selectedCourse, setSelectedCourse] = useState('');
-//     const [exams, setExams] = useState([]);
-//     const [selectedExam, setSelectedExam] = useState('');
-//     const [text, setText] = useState('');
-//     const [image, setImage] = useState(null);
-
-//     useEffect(() => {
-//         async function fetchCourses() {
-//             try {
-//                 const response = await axios.get('http://localhost:5007/server1/courses');
-//                 setCourses(response.data);
-//             } catch (error) {
-//                 console.error('Error fetching courses:', error);
-//             }
-//         }
-//         fetchCourses();
-//     }, []);
-
-//     const handleCourseChange = async (e) => {
-//         const courseId = e.target.value;
-//         setSelectedCourse(courseId);
-//         try {
-//             // Fetch exams based on the selected course ID
-//             const response = await axios.get(`http://localhost:5007/server1/exams/${courseId}`);
-//             setExams(response.data);
-//         } catch (error) {
-//             console.error('Error fetching exams:', error);
-//         }
-//     };
-
-//     const handleExamChange = (e) => {
-//         setSelectedExam(e.target.value);
-//     };
-
-//     const handleTextChange = (event) => {
-//         setText(event.target.value);
-//     };
-
-//     const handleImageChange = (event) => {
-//         setImage(event.target.files[0]);
-//     };
-
-//     const handleSubmit = async (event) => {
-//         event.preventDefault();
-
-//         if (!selectedCourse || !selectedExam || !text || !image) {
-//             // Handle form validation
-//             return;
-//         }
-
-//         const formData = new FormData();
-//         formData.append('courseId', selectedCourse);
-//         formData.append('examId', selectedExam);
-//         formData.append('text', text);
-//         formData.append('image', image);
-
-//         try {
-//             const response = await fetch('http://localhost:5007/ServerForCards/upload_image', {
-//                 method: 'POST',
-//                 body: formData,
-//             });
-
-//             if (response.ok) {
-//                 // Handle success
-//             } else {
-//                 // Handle error
-//             }
-//         } catch (error) {
-//             console.error('Error:', error);
-//         }
-//     };
-
-//     return (
-//         <div>
-//             <h1 className='pdf_table_heading'>UGExam Cards Uploader</h1>
-//             <div className="admin_project_item">
-//                 <label htmlFor="courseSelect" className="admin_label">Select a Course:</label>
-//                 <select id="courseSelect" value={selectedCourse} onChange={handleCourseChange} className="admin_select">
-//                     <option value="">Select a Course</option>
-//                     {courses.map(course => (
-//                         <option key={course.course_id} value={course.course_id}>
-//                             {course.course_name}
-//                         </option>
-//                     ))}
-//                 </select>
-//             </div>
-//             {selectedCourse && (
-//                 <div className="admin_project_item">
-//                     <label htmlFor="examSelect" className="admin_label">Select an Exam:</label>
-//                     <select id="examSelect" value={selectedExam} onChange={handleExamChange} className="admin_select">
-//                         <option value="">Select an Exam</option>
-//                         {exams.map(exam => (
-//                             <option key={exam.exam_id} value={exam.exam_id}>
-//                                 {exam.exam_name}
-//                             </option>
-//                         ))}
-//                     </select>
-//                 </div>
-//             )}
-//             {selectedExam && (
-//                 <form onSubmit={handleSubmit} encType="multipart/form-data">
-//                     <div className="admin_project_item">
-//                         <label htmlFor="examText" className="admin_label">Enter exam details:</label>
-//                         <input type="text" id="examText" value={text} onChange={handleTextChange} />
-//                     </div>
-//                     <div className="admin_project_item">
-//                         <label htmlFor="examImage" className="admin_label">Upload exam image:</label>
-//                         <input type="file" id="examImage" onChange={handleImageChange} />
-//                     </div>
-//                     <button type="submit">Submit</button>
-//                 </form>
-//             )}
-//         </div>
-//     );
-// }
-
-// export default Pg_downloadadminpage_two;
 

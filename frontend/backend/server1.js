@@ -35,7 +35,7 @@ const upload = multer({ storage: storage });
  
 router.get('/courses', async (req, res) => {
   try {
-      const query = 'SELECT * FROM 1egquiz_courses WHERE course_id IN (101, 102)';
+      const query = 'SELECT * FROM 1egquiz_courses';
       db.query(query, (error, results) => {
           if (error) {
               console.error('Error fetching courses:', error);
@@ -66,6 +66,26 @@ router.get('/courses', async (req, res) => {
   });
  
  
+
+
+ 
+  // router.get('/cardsexams/:courseId', (req, res) => {
+  //   const courseId = req.params.courseId;
+  //   const sql = `SELECT card_text FROM ug_cards WHERE course_id = ${courseId}`;
+  //   db.query(sql, (err, result) => {
+  //     if (err) {
+  //       console.error('Error fetching exams:', err);
+  //       res.status(500).json({ error: 'Internal Server Error' });
+  //     } else {      
+  //       res.json(result);
+  //     }
+  //   });
+  // });
+
+
+
+
+
  
  
   // const fs = require('fs'); // Import the file system module
@@ -497,5 +517,130 @@ router.get('/exams_pdfs/:exam_id/:course_id', (req, res) => {
 });
 
 
+
+
+
+
+
+
+
+// delete functionality
+
+
+// router.delete('/exams_pdfs/:exam_id/:course_id', (req, res) => {
+//   const { exam_id, course_id } = req.params;
+
+//   // Query the database to delete the specified row from the pgqs_sol_pdfs table
+//   const deleteQuery = 'DELETE FROM pgqs_sol_pdfs WHERE exam_id = ? AND course_id = ?';
+//   db.query(deleteQuery, [exam_id, course_id], (error, results) => {
+//     if (error) {
+//       console.error('Error deleting PDF:', error);
+//       return res.status(500).json({ error: 'Error deleting PDF' });
+//     }
+   
+//     // Check if any row was affected
+//     if (results.affectedRows === 0) {
+//       return res.status(404).json({ error: 'No PDF found for deletion' });
+//     }
+
+//     res.status(200).json({ message: 'PDF deleted successfully' });
+//   });
+// });
+
+
+// end
+
   
+
+
+// course creation
+
+// router.post('/saveCourse', (req, res) => {
+//   const { course_id, course_name } = req.body;
+//   const sql = 'INSERT INTO 1egquiz_courses (`course_id`, `course_name`) VALUES (?, ?)';
+//   db.query(sql, [course_id, course_name], (err, result) => {
+//     if (err) {
+//       console.error(err);
+//       res.status(500).json({ message: 'Error saving course' });
+//     } else {
+//       res.status(200).json({ message: 'Course saved successfully' });
+//     }
+//   });
+// });
+
+
+router.post('/saveCourse', (req, res) => {
+  const { course_id, course_name } = req.body;
+  const sqlSelect = 'SELECT * FROM 1egquiz_courses WHERE course_id = ?';
+  db.query(sqlSelect, [course_id], (selectErr, selectResult) => {
+    if (selectErr) {
+      console.error(selectErr);
+      res.status(500).json({ message: 'Error checking existing course' });
+    } else {
+      // If the result contains rows, it means the course already exists
+      if (selectResult.length > 0) {
+        console.log('Course already exists');
+        res.status(400).json({ message: 'Course already exists' });
+      } else {
+        // Course does not exist, insert it into the database
+        const sqlInsert = 'INSERT INTO 1egquiz_courses (`course_id`, `course_name`) VALUES (?, ?)';
+        db.query(sqlInsert, [course_id, course_name], (insertErr, insertResult) => {
+          if (insertErr) {
+            console.error(insertErr);
+            res.status(500).json({ message: 'Error saving course' });
+          } else {
+            console.log('Course saved successfully');
+            res.status(200).json({ message: 'Course saved successfully' });
+          }
+        });
+      }
+    }
+  });
+});
+
+
+// end
+
+
+
+
+// Exam creation 
+
+
+// Assuming you have initialized your Express app and set up your database connection
+
+router.post('/saveExam', (req, res) => {
+  const { course_id, exam_name } = req.body;
+  // Query to get the maximum exam_id for the given course_id
+  const getMaxExamIdQuery = 'SELECT MAX(exam_id) AS max_exam_id FROM 2egquiz_exam WHERE course_id = ?';
+  db.query(getMaxExamIdQuery, [course_id], (err, result) => {
+    if (err) {
+      console.error('Error getting max exam ID:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    } else {
+      // Increment the maximum exam_id by 1 to generate the new exam_id
+      const newExamId = result[0].max_exam_id ? result[0].max_exam_id + 1 : 1;
+      // Insert the new exam into the database
+      const insertExamQuery = 'INSERT INTO 2egquiz_exam (course_id, exam_id, exam_name) VALUES (?, ?, ?)';
+      db.query(insertExamQuery, [course_id, newExamId, exam_name], (err, result) => {
+        if (err) {
+          console.error('Error saving exam:', err);
+          res.status(500).json({ error: 'Error saving exam' });
+        } else {
+          res.status(200).json({ message: 'Exam saved successfully' });
+        }
+      });
+    }
+  });
+});
+
+
+
+
+// end
+
+
+
+
+
 module.exports = router;

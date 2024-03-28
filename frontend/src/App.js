@@ -149,7 +149,7 @@ import { ResetPassword } from "./components/ug_homepage/components/Downloads/Log
 
 import PG_Downloads_pdfList from './components/PG/PG_Downloads_pdfList.jsx';
 import Pg_downloadadminpage_two from './components/PG/Pg_downloadadminpage_two.jsx';
-
+import Downloads_Course_Exam_Creation from "./components/PG/Downloads_Course_Exam_Creation.jsx";
 
 
 
@@ -480,6 +480,8 @@ const App = () => {
 {/* <Route path='/Pg_Downloads_AdminPage' element={<Pg_Downloads_AdminPage/>} /> */}
 <Route path='/PG_Downloads_pdfList' element ={<PG_Downloads_pdfList/>} />
 <Route path='/Pg_downloadadminpage_two' element={<Pg_downloadadminpage_two/>} />
+
+<Route path='/Downloads_Course_Exam_Creation' element={<Downloads_Course_Exam_Creation/>} />
 
 {/* <Route path = "/Pg_Download_Admin_Page" element={<Pg_Download_Admin_Page/>} /> */}
 
